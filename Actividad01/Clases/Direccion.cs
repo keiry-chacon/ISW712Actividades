@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Actividad01.Clases
 {
-    internal class Direccion
+    public class Direccion
     {
         private string Provincia { get; set; }
         private string Canton { get; set; }

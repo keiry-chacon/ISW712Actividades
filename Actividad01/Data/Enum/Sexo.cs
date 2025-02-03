@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Actividad01.Data.Enum
 {
-    internal enum Sexo
+    public enum Sexo
     {
         Hombre,
         Mujer

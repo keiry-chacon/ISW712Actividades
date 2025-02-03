@@ -1,13 +1,10 @@
 ﻿using Actividad01.Data.Enum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Actividad01.Clases
 {
-    internal abstract class Persona
+    public abstract class Persona
     {
         protected string Nombre { get; set; }
         protected int Telefono { get; set; }
@@ -15,14 +12,15 @@ namespace Actividad01.Clases
         protected int Edad { get; set; }
         protected Direccion Direccion { get; set; }
 
-        private static int TotalPersonas;
+        protected static int TotalPersonas;
 
-        public Persona(string nombre, int telefono, Sexo sexo, int edad)
+        public Persona(
+            string nombre, int telefono, Sexo sexo, int edad)
         {
-            this.Nombre   = nombre;
+            this.Nombre = nombre;
             this.Telefono = telefono;
-            this.Sexo     = sexo;
-            this.Edad     = edad;
+            this.Sexo = sexo;
+            this.Edad = edad;
             TotalPersonas++;
         }
         public void AgregarDireccion(string provincia, string canton, string distrito, string otrasSenas)

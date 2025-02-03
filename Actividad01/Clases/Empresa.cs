@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Actividad01.Clases
 {
-    internal class Empresa
+    public class Empresa
     {
-        private string Nombre { get; set; }
+        protected string Nombre { get; set; }
 
         public Empresa(string nombre)
         {
             this.Nombre = nombre;
         }
 
-        public override string MostrarInfo()
+        public string MostrarInfo()
         {
             return $"Empresa: {Nombre}";
         }

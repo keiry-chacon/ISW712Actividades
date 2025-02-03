@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace Actividad01.Clases
 {
-    internal class Cliente 
+    public class Cliente : Persona
     {
-      
+        public Empresa Empresa { get; set; }
+
+        public Cliente(string nombre, int telefono, Sexo sexo, int edad, Empresa empresa)
+            : base(nombre, telefono, sexo, edad)
+        {
+            Empresa = empresa;
+        }
+
+        public override string MostrarInfo()
+        {
+            return $"Cliente: {Nombre}, Empresa: {Empresa.MostrarInfo()}";
+        }
     }
+
 }

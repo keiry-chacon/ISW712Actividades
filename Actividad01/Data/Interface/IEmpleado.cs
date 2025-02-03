@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Actividad01.Data.Interface
 {
-    internal interface IEmpleado
+    public interface IEmpleado
     {
+        int CalcularEdad(DateTime fechaNacimiento);
+        string ObtenerPuesto();
     }
+
 }

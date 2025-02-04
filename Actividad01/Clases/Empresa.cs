@@ -8,7 +8,7 @@ namespace Actividad01.Clases
 {
     public class Empresa
     {
-        protected string Nombre { get; set; }
+        private string Nombre { get; set; }
 
         public Empresa(string nombre)
         {

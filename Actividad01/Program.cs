@@ -7,33 +7,66 @@ namespace Actividad01
     {
         static void Main(string[] args)
         {
-       
+            // Crear direcciones
+            Direccion direccion1 = new Direccion("San José", "Desamparados", "Centro", "Frente al parque");
+            Direccion direccion2 = new Direccion("Alajuela", "San Ramón", "Centro", "Cerca del hospital");
+            Direccion direccion3 = new Direccion("Heredia", "San Pablo", "Centro", "Frente a la iglesia");
 
-            // Crear una dirección
-            Direccion direccion = new Direccion("San José", "Desamparados", "Centro", "Frente al parque");
-            Console.WriteLine("Dirección creada:");
-            Console.WriteLine(direccion.MostrarDireccion());
+            // Crear 3 empresas de forma normal
+            Empresa empresa1 = new Empresa("Tienda El Sol");
+            Empresa empresa2 = new Empresa("TechSolutions");
+            Empresa empresa3 = new Empresa("Constructora Atlas");
 
-            // Crear un cliente
-            Empresa empresaCliente = new Empresa("Tienda El Sol");
-            Cliente cliente = new Cliente("Dayron", 85736521, Sexo.Hombre, direccion, empresaCliente);
-            Console.WriteLine("\nInformación del Cliente:");
-            Console.WriteLine(cliente.MostrarInfo());
+            // Crear clientes y asociarlos con empresas diferentes
+            List<Cliente> clientes = new List<Cliente>
+            {
+                new Cliente("Dayron", 85736521, Sexo.Hombre, direccion1, empresa1),
+                new Cliente("María", 85478963, Sexo.Mujer, direccion2, empresa2),
+                new Cliente("Carlos", 89987412, Sexo.Hombre, direccion3, empresa3)
+            };
 
-            // Crear un empleado
-            Empresa empresaEmpleado = new Empresa("TechSolutions");
-            Empleado empleado = new Empleado("Jaz", 89933211, Sexo.Mujer, 30, direccion, 2500.50m, "Desarrolladora", empresaEmpleado);
-            Console.WriteLine("\nInformación del Empleado:");
-            Console.WriteLine(empleado.MostrarInfo());
+            // Mostrar información de los clientes
+            Console.WriteLine("\n===========================");
+            Console.WriteLine("Información de Clientes:");
+            Console.WriteLine("===========================");
+            foreach (var cliente in clientes)
+            {
+                Console.WriteLine(cliente.MostrarInfo());
+            }
 
-            // Crear un jefe
-            Jefe jefe = new Jefe("Sofía", 88991122, Sexo.Mujer, 40, direccion, 5500.75m, "Gerente General", empresaEmpleado, "Alta Gerencia");
-            Console.WriteLine("\nInformación del Jefe:");
-            Console.WriteLine(jefe.MostrarInfo());
+            // Crear empleados
+            List<Empleado> empleados = new List<Empleado>
+            {
+                new Empleado("Jaz", 89933211, Sexo.Mujer,  direccion1, 2500.50m, "Desarrolladora", empresa1),
+                new Empleado("Luis", 87765432, Sexo.Hombre, direccion2, 2200.75m, "Analista", empresa2),
+                new Empleado("Ana", 88812345, Sexo.Mujer,  direccion3, 2700.90m, "Diseñadora", empresa3)
+            };
 
-            // Pruebas con interfaz
-            Console.WriteLine("\nDatos del Empleado desde la Interfaz:");
-            MostrarDatosEmpleado(empleado);
+            // Mostrar información de los empleados
+            Console.WriteLine("\n===========================");
+            Console.WriteLine("Información de Empleados:");
+            Console.WriteLine("===========================");
+            foreach (var empleado in empleados)
+            {
+                Console.WriteLine(empleado.MostrarInfo());
+            }
+
+            // Crear jefe
+            Jefe jefe1 = new Jefe("Carlos", 99988877, Sexo.Hombre, direccion1, 5000.00m, "Gerente General", empresa1, "Alta");
+
+            // Mostrar la información del jefe
+            Console.WriteLine("\n===========================");
+            Console.WriteLine("Información del Jefe:");
+            Console.WriteLine("===========================");
+            Console.WriteLine(jefe1.MostrarInfo());
+
+
+            // Mostrar el total de personas
+
+            Console.WriteLine("\n===========================");
+            Console.WriteLine($"Total de personas: {Persona.TotalPersonas}");
+            Console.WriteLine("===========================");
+
         }
 
         static void MostrarDatosEmpleado(IEmpleado empleado)

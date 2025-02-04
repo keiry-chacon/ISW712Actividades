@@ -3,16 +3,18 @@ using Actividad01.Data.Enum;
 using Actividad01.Data.Interface;
 public class Empleado : Persona, IEmpleado
 {
-    public decimal Salario { get; set; }
-    public string Puesto { get; set; }
-    public Empresa Empresa { get; set; }
-    public Empleado(string nombre, int telefono, Sexo sexo, int edad, decimal salario, string puesto, Empresa empresa)
-        : base(nombre, telefono, sexo, edad)
+    protected decimal Salario { get; set; }
+    protected string Puesto { get; set; }
+    protected Empresa Empresa { get; set; }
+    public Empleado(string nombre, int telefono, Sexo sexo,  Direccion direccion, decimal salario, string puesto, Empresa empresa)
+        : base(nombre, telefono, sexo, direccion)
     {
         Salario = salario;
         Puesto = puesto;
         Empresa = empresa;
     }
+
+ 
     public int CalcularEdad(DateTime fechaNacimiento)
     {
         int edad = DateTime.Now.Year - fechaNacimiento.Year;
@@ -28,6 +30,6 @@ public class Empleado : Persona, IEmpleado
 
     public override string MostrarInfo()
     {
-        return $"Empleado: {Nombre}, Puesto: {Puesto}, Salario: {Salario}, Empresa: {Empresa.MostrarInfo()}";
+        return $"Empleado: {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Puesto: {Puesto}, Salario: {Salario}";
     }
 }

@@ -7,15 +7,15 @@ namespace Actividad01.Clases
     {
         private string Categoria { get; set; }
 
-        public Jefe(string nombre, int telefono, Sexo sexo, Direccion direccion, decimal salario, string puesto, Empresa empresa, string categoria)
-            : base(nombre, telefono, sexo, direccion, salario, puesto, empresa)
+        public Jefe(string nombre, int telefono, Sexo sexo, Direccion direccion, decimal salario, string puesto, Empresa empresa, string categoria) : base(nombre, telefono, sexo, direccion, salario, puesto, empresa)
         {
-            Categoria = categoria;
+            Categoria = Categoria;
         }
 
-        public string MostrarInfo()
+
+        public override string MostrarInfo()
         {
-            return $"Jefe: {Nombre}, Categoría: {Categoria}, Puesto: {ObtenerPuesto()}, Salario: {Salario}, {Empresa.MostrarInfo()}";
+            return $"- {Nombre}, Categoría: {Categoria}, Puesto: {ObtenerPuesto()}, Salario: {Salario}, {Empresa.MostrarInfo()}";
         }
     }
 }

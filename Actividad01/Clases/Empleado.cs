@@ -3,11 +3,12 @@ using Actividad01.Data.Enum;
 using Actividad01.Data.Interface;
 public class Empleado : Persona, IEmpleado
 {
+    // se paso a protected ya que sino jefe no tenia acceso a salario
     protected decimal Salario { get; set; }
-    protected string Puesto { get; set; }
+    private string Puesto { get; set; }
     protected Empresa Empresa { get; set; }
     public Empleado(string nombre, int telefono, Sexo sexo,  Direccion direccion, decimal salario, string puesto, Empresa empresa)
-        : base(nombre, telefono, sexo, direccion)
+        : base(nombre, telefono, sexo, 1, direccion)
     {
         Salario = salario;
         Puesto = puesto;
@@ -30,6 +31,8 @@ public class Empleado : Persona, IEmpleado
 
     public override string MostrarInfo()
     {
-        return $"Empleado: {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Puesto: {Puesto}, Salario: {Salario}";
+        // se quemo una fecha solo para demostracion
+        DateTime fecha = new DateTime(1990, 5, 20);
+        return $"- {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Edad: {CalcularEdad(fecha)} Puesto: {ObtenerPuesto()}, Salario: {Salario}";
     }
 }

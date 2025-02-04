@@ -12,12 +12,12 @@ namespace Actividad01
             Direccion direccion2 = new Direccion("Alajuela", "San Ramón", "Centro", "Cerca del hospital");
             Direccion direccion3 = new Direccion("Heredia", "San Pablo", "Centro", "Frente a la iglesia");
 
-            // Crear 3 empresas de forma normal
+            // Crear empresas
             Empresa empresa1 = new Empresa("Tienda El Sol");
             Empresa empresa2 = new Empresa("TechSolutions");
             Empresa empresa3 = new Empresa("Constructora Atlas");
 
-            // Crear clientes y asociarlos con empresas diferentes
+            // Crear clientes
             List<Cliente> clientes = new List<Cliente>
             {
                 new Cliente("Dayron", 85736521, Sexo.Hombre, direccion1, empresa1),
@@ -25,7 +25,7 @@ namespace Actividad01
                 new Cliente("Carlos", 89987412, Sexo.Hombre, direccion3, empresa3)
             };
 
-            // Mostrar información de los clientes
+            // Mostrar la información de los clientes
             Console.WriteLine("\n===========================");
             Console.WriteLine("Información de Clientes:");
             Console.WriteLine("===========================");
@@ -39,10 +39,10 @@ namespace Actividad01
             {
                 new Empleado("Jaz", 89933211, Sexo.Mujer,  direccion1, 2500.50m, "Desarrolladora", empresa1),
                 new Empleado("Luis", 87765432, Sexo.Hombre, direccion2, 2200.75m, "Analista", empresa2),
-                new Empleado("Ana", 88812345, Sexo.Mujer,  direccion3, 2700.90m, "Diseñadora", empresa3)
+                new Empleado("Ana", 88812345, Sexo.Mujer, direccion3, 2700.90m, "Diseñadora", empresa3)
             };
 
-            // Mostrar información de los empleados
+            // Mostrar la información de los empleados
             Console.WriteLine("\n===========================");
             Console.WriteLine("Información de Empleados:");
             Console.WriteLine("===========================");
@@ -62,19 +62,11 @@ namespace Actividad01
 
 
             // Mostrar el total de personas
-
             Console.WriteLine("\n===========================");
-            Console.WriteLine($"Total de personas: {Persona.TotalPersonas}");
+            Console.WriteLine($"Total de personas: {Persona.ObtenerTotalPersonas()}");
             Console.WriteLine("===========================");
 
         }
-
-        static void MostrarDatosEmpleado(IEmpleado empleado)
-        {
-            Console.WriteLine($"Edad Calculada: {empleado.CalcularEdad(new DateTime(1994, 5, 20))}");
-            Console.WriteLine($"Puesto: {empleado.ObtenerPuesto()}");
-        }
-
     }
 }
     

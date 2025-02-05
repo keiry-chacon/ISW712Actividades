@@ -33,6 +33,6 @@ public class Empleado : Persona, IEmpleado
     {
         // se quemo una fecha solo para demostracion
         DateTime fecha = new DateTime(1990, 5, 20);
-        return $"- {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Edad: {CalcularEdad(fecha)} Puesto: {ObtenerPuesto()}, Salario: {Salario}";
+        return $"- {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Edad: {CalcularEdad(fecha)}, Puesto: {ObtenerPuesto()}, Salario: {Salario}, {Empresa.MostrarInfo()}";
     }
 }

@@ -6,7 +6,7 @@ namespace Actividad01.Clases
 {
     public abstract class Persona
     {
-        // se cambio a protected ya que al mostrar la infor en cliente y empleado no se podia obtener la informacion
+        //se coloca protected ya que es herencia y sin este no se podria acceder en otra parte
         protected string Nombre { get; set; }
         protected int Telefono { get; set; }
         protected Sexo Sexo { get; set; }

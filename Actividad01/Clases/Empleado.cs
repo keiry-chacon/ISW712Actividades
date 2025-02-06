@@ -4,9 +4,9 @@ using Actividad01.Data.Interface;
 public class Empleado : Persona, IEmpleado
 {
     // se paso a protected ya que sino jefe no tenia acceso a salario
-    protected decimal Salario { get; set; }
+    private decimal Salario { get; set; }
     private string Puesto { get; set; }
-    protected Empresa Empresa { get; set; }
+    private Empresa Empresa { get; set; }
     public Empleado(string nombre, int telefono, Sexo sexo,  Direccion direccion, decimal salario, string puesto, Empresa empresa)
         : base(nombre, telefono, sexo, 1, direccion)
     {
@@ -33,6 +33,6 @@ public class Empleado : Persona, IEmpleado
     {
         // se quemo una fecha solo para demostracion
         DateTime fecha = new DateTime(1990, 5, 20);
-        return $"- {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo}, Edad: {CalcularEdad(fecha)}, Puesto: {ObtenerPuesto()}, Salario: {Salario}, {Empresa.MostrarInfo()}";
+        return $"- {Nombre}, Teléfono: {Telefono}, Sexo: {Sexo},Dirección: {Direccion.MostrarDireccion()}, Edad: {CalcularEdad(fecha)}, Puesto: {ObtenerPuesto()}, Salario: {Salario}, {Empresa.MostrarInfo()}";
     }
 }

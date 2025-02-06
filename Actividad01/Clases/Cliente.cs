@@ -17,7 +17,7 @@ namespace Actividad01.Clases
         public override string MostrarInfo()
         {
             return $"- {Nombre}, Tel: {Telefono}, Sexo: {Sexo}, " +
-                          $"Dirección: {Direccion.MostrarDireccion()}, Empresa: {Empresa.MostrarInfo()}";
+                          $"Dirección: {Direccion.MostrarDireccion()}, {Empresa.MostrarInfo()}";
         }
     }
 

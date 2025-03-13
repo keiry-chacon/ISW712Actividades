@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Estudiante>
+@using ISW0712_EvalucionI.Enum
+
+<h1>Estudiantes</h1>
+<a asp-controller="Estudiante" asp-action="Create" class="btn btn-success" type="button">Agregar</a>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(e => e.Id)</th>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Apellido1</th>
+            <th>Apellido2</th>
+            <th>Sexo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.Id</td>
+                <td>@estudiante.Cedula</td>
+                <td>@estudiante.Nombre</td>
+                <td>@estudiante.Apellido1</td>
+                <td>@estudiante.Apellido2</td>
+                <td>@estudiante.Sexo</td>
+                <td>@estudiante.Estado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@estudiante.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Detail" asp-route-id="@estudiante.Id" class="btn btn-info">Detalle</a>
+
+                    @if (estudiante.Estado != Estado.Matriculado)
+                    {
+                        <a href="javascript:void(0);" class="btn btn-danger" onclick="confirmarEliminacion(@estudiante.Id)">Eliminar</a>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" disabled title="No se puede eliminar un estudiante matriculado">Eliminar</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function confirmarEliminacion(id) {
+        if (confirm("¿Está seguro de que desea eliminar este estudiante? Esta acción no se puede deshacer.")) {
+            window.location.href = "/Estudiante/Delete/" + id;
+        }
+    }
+</script>

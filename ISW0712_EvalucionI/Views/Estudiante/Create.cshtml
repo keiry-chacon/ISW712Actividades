@@ -1,0 +1,51 @@
+﻿@using ISW0712_EvalucionI.Enum
+@model Estudiante
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Formulario para crear un estudiante</h1>
+
+<form method="post" asp-action="Create">
+    <!-- Cedula -->
+    <div class="mb-3">
+        <label asp-for="Cedula" class="form-label">Cédula</label>
+        <input asp-for="Cedula" class="form-control" placeholder="Cédula">
+        <span asp-validation-for="Cedula" class="text-danger"></span>
+    </div>
+
+    <!-- Nombre -->
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" placeholder="Nombre">
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <!-- Apellido1 -->
+    <div class="mb-3">
+        <label asp-for="Apellido1" class="form-label">Primer Apellido</label>
+        <input asp-for="Apellido1" class="form-control" placeholder="Primer Apellido">
+        <span asp-validation-for="Apellido1" class="text-danger"></span>
+    </div>
+
+    <!-- Apellido2 -->
+    <div class="mb-3">
+        <label asp-for="Apellido2" class="form-label">Segundo Apellido</label>
+        <input asp-for="Apellido2" class="form-control" placeholder="Segundo Apellido">
+        <span asp-validation-for="Apellido2" class="text-danger"></span>
+    </div>
+
+    <!-- Sexo -->
+    <div class="mb-3">
+        <label asp-for="Sexo" class="form-label">Sexo</label>
+        <select asp-for="Sexo" class="form-control" asp-items="Html.GetEnumSelectList<Sexo>()">
+            <option value="">Seleccione un sexo</option>
+        </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+<a asp-controller="Estudiante" asp-action="Index" class="btn btn-success" type="button">Regresar</a>

@@ -1,0 +1,17 @@
+﻿@model Matricula
+
+<h2>Detalles de la Matrícula</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Matrícula #@Model.Id</h4>
+        <p class="card-text"><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
+
+        <h5 class="mt-3">Detalles del Estudiante</h5>
+        <p class="card-text"><strong>Nombre:</strong> @Model.Estudiante.Nombre @Model.Estudiante.Apellido1 @Model.Estudiante.Apellido2</p>
+        <p class="card-text"><strong>Cédula:</strong> @Model.Estudiante.Cedula</p>
+        <p class="card-text"><strong>Sexo:</strong> @Model.Estudiante.Sexo</p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

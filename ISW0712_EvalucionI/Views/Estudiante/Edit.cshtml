@@ -1,0 +1,60 @@
+﻿@using ISW0712_EvalucionI.Enum
+@model Estudiante
+
+<h2>Editar Estudiante</h2>
+
+<form asp-action="Edit" method="post">
+    <!-- Id (solo lectura) -->
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+
+    <!-- Cedula -->
+    <div class="form-group">
+        <label asp-for="Cedula"></label>
+        <input asp-for="Cedula" class="form-control" />
+        <span asp-validation-for="Cedula" class="text-danger"></span>
+    </div>
+
+    <!-- Nombre -->
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <!-- Apellido1 -->
+    <div class="form-group">
+        <label asp-for="Apellido1"></label>
+        <input asp-for="Apellido1" class="form-control" />
+        <span asp-validation-for="Apellido1" class="text-danger"></span>
+    </div>
+
+    <!-- Apellido2 -->
+    <div class="form-group">
+        <label asp-for="Apellido2"></label>
+        <input asp-for="Apellido2" class="form-control" />
+        <span asp-validation-for="Apellido2" class="text-danger"></span>
+    </div>
+
+    <!-- Sexo -->
+    <div class="form-group">
+        <label asp-for="Sexo"></label>
+        <select asp-for="Sexo" class="form-control" asp-items="Html.GetEnumSelectList<Sexo>()">
+            <option value="">Seleccione un sexo</option>
+        </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
+    </div>
+
+    <!-- Estado -->
+    <div class="form-group">
+        <label asp-for="Estado"></label>
+        <input asp-for="Estado" class="form-control" />
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <!-- Botones -->
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

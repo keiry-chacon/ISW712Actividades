@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ISW0712_EvalucionI.props" />
+</Project>

@@ -1,0 +1,40 @@
+﻿@model Matricula
+
+<h1>Formulario para crear una matrícula</h1>
+
+<form method="post" asp-action="Create">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Id" class="form-label">Id</label>
+        <input asp-for="Id" class="form-control" placeholder="Id">
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label">Fecha</label>
+        <input asp-for="Fecha" type="date" class="form-control" placeholder="Fecha">
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EstudianteId" class="form-label">Estudiante</label>
+        <select asp-for="EstudianteId" class="form-control">
+            <option value="">Seleccione un estudiante</option>
+            @if (ViewBag.Estudiantes != null)
+            {
+                foreach (var estudiante in ViewBag.Estudiantes)
+                {
+                    <option value="@estudiante.Id">@estudiante.Cedula @estudiante.Nombre @estudiante.Apellido1 @estudiante.Apellido2</option>
+                }
+            }
+            else
+            {
+                <p>No hay estudiantes disponibles.</p>
+            }
+
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+<a asp-controller="Matricula" asp-action="Index" class="btn btn-success">Regresar</a>

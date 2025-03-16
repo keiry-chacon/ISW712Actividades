@@ -1,4 +1,5 @@
-﻿using ISW0712_EvalucionI.Interface;
+﻿using ISW0712_EvalucionI.Enum;
+using ISW0712_EvalucionI.Interface;
 
 namespace ISW0712_EvalucionI.Services
 {
@@ -9,9 +10,9 @@ namespace ISW0712_EvalucionI.Services
         {
             _loggerService = loggerService;
         }
-        public void GenerarLog(string mensaje)
+        public void GenerarLog(ActionLog accion, EntityLog entidad, int? id = null)
         {
-            _loggerService.GenerarLog(mensaje);
+            _loggerService.GenerarLog( accion, entidad, id);
         }
     }
 }

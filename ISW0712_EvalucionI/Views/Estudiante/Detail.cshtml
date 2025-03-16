@@ -5,9 +5,17 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">@Model.Nombre</h4>
-        <p class="card-text"><strong>Identificador:</strong> @Model.Id</p>
-        <p class="card-text"><strong>Email:</strong> @Model.Cedula</p>
-        <p class="card-text"><strong>Estado:</strong> @Model.Estado</p>
+
+        <dl class="row">
+            <dt class="col-sm-3">Identificador:</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Cédula:</dt>
+            <dd class="col-sm-9">@Model.Cedula</dd>
+
+            <dt class="col-sm-3">Estado:</dt>
+            <dd class="col-sm-9">@Model.Estado</dd>
+        </dl>
     </div>
 </div>
 

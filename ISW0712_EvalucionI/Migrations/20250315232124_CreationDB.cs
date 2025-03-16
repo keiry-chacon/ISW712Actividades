@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ISW0712_EvalucionI.Migrations
 {
     /// <inheritdoc />
-    public partial class CreacionBD : Migration
+    public partial class CreationDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,23 @@ namespace ISW0712_EvalucionI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_estudiante", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "eventLogs",
+                schema: "evaluacion1",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    accion = table.Column<string>(type: "text", nullable: false),
+                    entidad = table.Column<string>(type: "text", nullable: false),
+                    entidad_id = table.Column<int>(type: "integer", nullable: true),
+                    timestamp = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_eventLogs", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,6 +83,10 @@ namespace ISW0712_EvalucionI.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "eventLogs",
+                schema: "evaluacion1");
+
             migrationBuilder.DropTable(
                 name: "matricula",
                 schema: "evaluacion1");

@@ -18,14 +18,14 @@ namespace ISW0712_EvalucionI.Services
         }
         public IEnumerable<Estudiante> GetAll()
         {
-            _loggerService.GenerarLog("GET");
+            _loggerService.GenerarLog(ActionLog.Consulta, EntityLog.Estudiante);
             return _context.Estudiantes.OrderBy(e => e.Id).ToList();
 
         }
 
         public Estudiante FindById(int id)
         {
-            _loggerService.GenerarLog("GET");
+            _loggerService.GenerarLog(ActionLog.Consulta, EntityLog.Estudiante,id);
             return _context.Estudiantes.Find(id);
 
         }
@@ -34,7 +34,7 @@ namespace ISW0712_EvalucionI.Services
         {
             _context.Estudiantes.Add(estudiante);
             _context.SaveChanges();
-            _loggerService.GenerarLog("POST");
+            _loggerService.GenerarLog(ActionLog.Agregar, EntityLog.Estudiante,estudiante.Id);
 
         }
 
@@ -42,7 +42,7 @@ namespace ISW0712_EvalucionI.Services
         {
             _context.Estudiantes.Update(estudiante);
             _context.SaveChanges();
-            _loggerService.GenerarLog("PUT");
+            _loggerService.GenerarLog(ActionLog.Actualizar, EntityLog.Estudiante,estudiante.Id);
 
         }
 
@@ -53,7 +53,7 @@ namespace ISW0712_EvalucionI.Services
             {
                 _context.Estudiantes.Remove(estudiante);
                 _context.SaveChanges();
-                _loggerService.GenerarLog("DELETE");
+                _loggerService.GenerarLog(ActionLog.Eliminar, EntityLog.Estudiante,estudiante.Id);
 
             }
             else

@@ -2153,11 +2153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\keiry\\source\\repos\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
+      "projectUniqueName": "C:\\Users\\keiry\\source\\repos\\Actividades\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
       "projectName": "ISW0712_EvalucionI",
-      "projectPath": "C:\\Users\\keiry\\source\\repos\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
+      "projectPath": "C:\\Users\\keiry\\source\\repos\\Actividades\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
       "packagesPath": "C:\\Users\\keiry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\keiry\\source\\repos\\ISW0712_EvalucionI\\obj\\",
+      "outputPath": "C:\\Users\\keiry\\source\\repos\\Actividades\\ISW0712_EvalucionI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\keiry\\AppData\\Roaming\\NuGet\\NuGet.Config",

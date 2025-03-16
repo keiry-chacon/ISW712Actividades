@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ISW0712_EvalucionI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250312205321_CreacionEventLog")]
-    partial class CreacionEventLog
+    [Migration("20250315232124_CreationDB")]
+    partial class CreationDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,20 +29,32 @@ namespace ISW0712_EvalucionI.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Message")
+                    b.Property<string>("Accion")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("accion");
+
+                    b.Property<string>("Entidad")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("entidad");
+
+                    b.Property<int?>("EntidadId")
+                        .HasColumnType("integer")
+                        .HasColumnName("entidad_id");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("timestamp");
 
                     b.HasKey("Id");
 
-                    b.ToTable("EventLogs", (string)null);
+                    b.ToTable("eventLogs", "evaluacion1");
                 });
 
             modelBuilder.Entity("ISW0712_EvalucionI.Models.Estudiante", b =>

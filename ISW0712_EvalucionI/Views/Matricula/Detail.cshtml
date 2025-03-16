@@ -5,12 +5,25 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Matrícula #@Model.Id</h4>
-        <p class="card-text"><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
 
+        <!-- Detalles de la Matrícula -->
+        <dl class="row">
+            <dt class="col-sm-3">Fecha:</dt>
+            <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy")</dd>
+        </dl>
+
+        <!-- Detalles del Estudiante -->
         <h5 class="mt-3">Detalles del Estudiante</h5>
-        <p class="card-text"><strong>Nombre:</strong> @Model.Estudiante.Nombre @Model.Estudiante.Apellido1 @Model.Estudiante.Apellido2</p>
-        <p class="card-text"><strong>Cédula:</strong> @Model.Estudiante.Cedula</p>
-        <p class="card-text"><strong>Sexo:</strong> @Model.Estudiante.Sexo</p>
+        <dl class="row">
+            <dt class="col-sm-3">Nombre:</dt>
+            <dd class="col-sm-9">@Model.Estudiante.Nombre @Model.Estudiante.Apellido1 @Model.Estudiante.Apellido2</dd>
+
+            <dt class="col-sm-3">Cédula:</dt>
+            <dd class="col-sm-9">@Model.Estudiante.Cedula</dd>
+
+            <dt class="col-sm-3">Sexo:</dt>
+            <dd class="col-sm-9">@Model.Estudiante.Sexo</dd>
+        </dl>
     </div>
 </div>
 

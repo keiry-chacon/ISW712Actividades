@@ -17,7 +17,30 @@ namespace ISW0712_EvalucionI.Data
         public DbSet<AppEventLog> EventLogs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AppEventLog>().ToTable("EventLogs"); 
+            modelBuilder.Entity<AppEventLog>().ToTable("eventLogs", "evaluacion1");
+            modelBuilder.Entity<AppEventLog>()
+            .Property(e => e.Id)
+            .HasColumnName("id")
+            .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<AppEventLog>()
+                .Property(e => e.Accion)
+                .HasColumnName("accion")
+                .HasConversion<string>();
+
+            modelBuilder.Entity<AppEventLog>()
+                .Property(e => e.Entidad)
+                .HasColumnName("entidad")
+                .HasConversion<string>();
+
+            modelBuilder.Entity<AppEventLog>()
+                .Property(e => e.EntidadId)
+                .HasColumnName("entidad_id");
+
+            modelBuilder.Entity<AppEventLog>()
+                .Property(e => e.Timestamp)
+                .HasColumnName("timestamp")
+                .HasColumnType("timestamp with time zone");
 
             modelBuilder.Entity<Estudiante>()
                 .ToTable("estudiante", "evaluacion1");

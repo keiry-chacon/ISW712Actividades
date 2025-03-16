@@ -1,4 +1,5 @@
-﻿using ISW0712_EvalucionI.Interface;
+﻿using ISW0712_EvalucionI.Enum;
+using ISW0712_EvalucionI.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,23 @@ namespace ISW0712_EvalucionI.Implementation
 {
     internal class LoggerPantallaService: ILoggerSalidaService
     {
-        public void GenerarLog(string mensaje)
-        {   
-            Console.WriteLine($"[{DateTime.Now}] {mensaje}");
+        public void GenerarLog(ActionLog accion, EntityLog entidad, int? id = null)
+        {
+            try
+            {
+                var mensaje = $"[{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}] {accion} - {entidad}";
+
+                if (id.HasValue)
+                {
+                    mensaje += $": {id.Value}";
+                }
+
+                Console.WriteLine(mensaje);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al escribir en la consola: {ex.Message}");
+            }
         }
     }
 }

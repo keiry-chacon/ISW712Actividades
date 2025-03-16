@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RZoj5err95SofDgi4tODD+NY2Am2ti+Pv3udfRugwPI/YmTY6GQIWpVTpBZvFcF0LhogiQfVYUwNRTagN362HA==",
+  "dgSpecHash": "4mY3JxV0MnN18xa5Q/Agaxpf+e8NQHYDOVfWruC/md/A6ry4+vQD19GpBPgv/Sg39TilpIzW5eEUsOv/mwizuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\keiry\\source\\repos\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
+  "projectFilePath": "C:\\Users\\keiry\\source\\repos\\Actividades\\ISW0712_EvalucionI\\ISW0712_EvalucionI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\keiry\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\keiry\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

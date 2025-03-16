@@ -45,33 +45,17 @@ namespace ISW0712_EvalucionI.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (matricula.Fecha.Kind == DateTimeKind.Unspecified)
-                {
-                    matricula.Fecha = DateTime.SpecifyKind(matricula.Fecha, DateTimeKind.Utc);
-                }
+                // Establecer la fecha actual
+                matricula.Fecha = DateTime.UtcNow;
 
-                // Buscar el estudiante por su ID
-                var estudiante = _estudianteService.FindById(matricula.EstudianteId);
+                // El ID se generará automáticamente en la base de datos
+                _matriculaService.Create(matricula);
+                return RedirectToAction(nameof(Index));
 
-                if (estudiante != null)
-                {
-                    // Cambiar el estado del estudiante a "Matriculado"
-                    estudiante.Estado = Estado.Matriculado;
-
-                    // Guardar los cambios del estudiante
-                    _estudianteService.Edit(estudiante);
-
-                    // Asignar el estudiante a la matrícula y crearla
-                    matricula.Estudiante = estudiante;
-                    _matriculaService.Create(matricula);
-
-                    return RedirectToAction(nameof(Index));
-                }
-
-                // Si el estudiante no se encuentra, añadir un error al modelo
-                ModelState.AddModelError("", "El estudiante no se encuentra.");
             }
 
+            var estudiantes = _estudianteService.GetAll();
+            ViewBag.Estudientes = estudiantes;
             return View(matricula);
         }
 

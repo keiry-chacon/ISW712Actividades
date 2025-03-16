@@ -4,16 +4,6 @@
 
 <form method="post" asp-action="Create">
     <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="mb-3">
-        <label asp-for="Id" class="form-label">Id</label>
-        <input asp-for="Id" class="form-control" placeholder="Id">
-        <span asp-validation-for="Id" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Fecha" class="form-label">Fecha</label>
-        <input asp-for="Fecha" type="date" class="form-control" placeholder="Fecha">
-        <span asp-validation-for="Fecha" class="text-danger"></span>
-    </div>
 
     <div class="mb-3">
         <label asp-for="EstudianteId" class="form-label">Estudiante</label>
@@ -30,8 +20,8 @@
             {
                 <p>No hay estudiantes disponibles.</p>
             }
-
         </select>
+        <span asp-validation-for="EstudianteId" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

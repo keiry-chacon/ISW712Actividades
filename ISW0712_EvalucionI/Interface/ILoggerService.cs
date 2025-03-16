@@ -1,8 +1,10 @@
-﻿namespace ISW0712_EvalucionI.Interface
+﻿using ISW0712_EvalucionI.Enum;
+
+namespace ISW0712_EvalucionI.Interface
 {
     public interface ILoggerService
     {
-        void GenerarLog(string mensaje);
+        void GenerarLog(ActionLog accion, EntityLog entidad, int? id = null);
 
     }
 }

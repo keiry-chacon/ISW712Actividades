@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using ISW0712_EvalucionI.Data;
 using ISW0712_EvalucionI.Models;
+using static System.Collections.Specialized.BitVector32;
+using ISW0712_EvalucionI.Enum;
 
 namespace ISW0712_EvalucionI.Implementation
 {
@@ -21,14 +23,15 @@ namespace ISW0712_EvalucionI.Implementation
             _context = context;
         }
 
-        public void GenerarLog(string mensaje)
+        public void GenerarLog(ActionLog accion, EntityLog entidad, int? id = null)
         {
-            AppEventLog eventLog = new AppEventLog
+            var eventLog = new AppEventLog
             {
-                Message = mensaje,
+                Accion    = accion,
+                Entidad   = entidad,
+                EntidadId = id,
                 Timestamp = DateTime.UtcNow
             };
-
             _context.EventLogs.Add(eventLog);
             _context.SaveChanges();
         }

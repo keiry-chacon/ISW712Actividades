@@ -7,9 +7,9 @@ namespace ISW0712_EvalucionI.Implementation
     {
 
         private readonly AppDbContext _context;
-        public DatabaseEventLog(AppDbContext context)
+        public DatabaseEventService(AppDbContext context)
         {
-            _context = _context;
+            _context = context;
         }
         public void Log(ActionLog accion, EntityLog entidad, int? id = null)
         {

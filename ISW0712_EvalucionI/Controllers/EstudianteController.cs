@@ -27,7 +27,6 @@ namespace ISW0712_EvalucionI.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(Estudiante estudiante)
         {
             if (ModelState.IsValid)
@@ -46,7 +45,6 @@ namespace ISW0712_EvalucionI.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Estudiante estudiante)
         {
             if (id != estudiante.Id) return NotFound();

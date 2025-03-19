@@ -1,4 +1,5 @@
-﻿using ISW0712_EvalucionI.Models;
+﻿using ISW0712_EvalucionI.Enum;
+using ISW0712_EvalucionI.Models;
 
 namespace ISW0712_EvalucionI.Interface
 {
@@ -9,5 +10,6 @@ namespace ISW0712_EvalucionI.Interface
         void Create(Estudiante estudiante);
         void Edit(Estudiante estudiante);
         void Delete(int id);
+        void ChangeStatus(int estudianteId, Estado nuevoEstado);
     }
 }

@@ -61,6 +61,19 @@ namespace ISW0712_EvalucionI.Services
                 throw new InvalidOperationException("No se puede eliminar un estudiante matriculado.");
             }
         }
+        public void ChangeStatus(int estudianteId, Estado nuevoEstado)
+        {
+            var estudiante = _context.Estudiantes.Find(estudianteId);
+            if (estudiante == null)
+            {
+                throw new InvalidOperationException("No se pudo encontrar el estudiante.");
+            }
+
+            estudiante.Estado = nuevoEstado;
+            _context.SaveChanges();
+
+            _loggerService.GenerarLog(ActionLog.Actualizar, EntityLog.Estudiante, estudianteId);
+        }
     }
 
 }

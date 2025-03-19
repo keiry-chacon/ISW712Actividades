@@ -18,14 +18,12 @@ namespace ISW0712_EvalucionI.Controllers
             _estudianteService = estudianteService;
         }
 
-        // Mostrar todas las matrículas
         public IActionResult Index()
         {
             var matriculas = _matriculaService.GetAll();
             return View(matriculas);
         }
 
-        // Crear una nueva matrícula
         public IActionResult Create()
         {
             var estudiantesNoMatriculados = _estudianteService.GetAll()
@@ -39,16 +37,12 @@ namespace ISW0712_EvalucionI.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-
         public IActionResult Create(Matricula matricula)
         {
             if (ModelState.IsValid)
             {
-                // Establecer la fecha actual
                 matricula.Fecha = DateTime.UtcNow;
 
-                // El ID se generará automáticamente en la base de datos
                 _matriculaService.Create(matricula);
                 return RedirectToAction(nameof(Index));
 
@@ -60,7 +54,6 @@ namespace ISW0712_EvalucionI.Controllers
         }
 
 
-        // Editar una matrícula existente
         public IActionResult Edit(int id)
         {
             var matricula = _matriculaService.FindById(id);
@@ -72,7 +65,6 @@ namespace ISW0712_EvalucionI.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Matricula matricula)
         {
             if (id != matricula.Id) return NotFound();
@@ -86,7 +78,6 @@ namespace ISW0712_EvalucionI.Controllers
             return View(matricula);
         }
 
-        // Ver detalles de una matrícula
         public IActionResult Detail(int id)
         {
             var matricula = _matriculaService.FindById(id);
@@ -95,7 +86,6 @@ namespace ISW0712_EvalucionI.Controllers
             return View(matricula);
         }
 
-        // Eliminar una matrícula
         public IActionResult Delete(int id)
         {
             var matricula = _matriculaService.FindById(id);
@@ -104,15 +94,7 @@ namespace ISW0712_EvalucionI.Controllers
             {
                 return NotFound();
             }
-
-            var estudiante = _estudianteService.FindById(matricula.EstudianteId);
-
-            if (estudiante != null)
-            {
-                estudiante.Estado = Estado.NoMatriculado;
-                _estudianteService.Edit(estudiante);
-            }
-
+            _estudianteService.ChangeStatus(matricula.EstudianteId,Estado.NoMatriculado);
             _matriculaService.Delete(id);  
             return RedirectToAction(nameof(Index));  
         }

@@ -3,6 +3,7 @@ using ISW0712_EvalucionI.Implementation;
 using ISW0712_EvalucionI.Interface;
 using ISW0712_EvalucionI.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace ISW0712_EvalucionI
 {
@@ -20,11 +21,12 @@ namespace ISW0712_EvalucionI
                 options.UseNpgsql(builder.Configuration.GetConnectionString("Conexion"));
             });
 
-            // Registrar el servicio en el contenedor de dependencias
+            // Registrar el servicio ede dependencias
             builder.Services.AddScoped<IEstudianteService, EstudianteService>();
             builder.Services.AddScoped<IMatriculaService, MatriculaService>();
             builder.Services.AddScoped<ILoggerService, LoggerService>();
-            builder.Services.AddScoped<ILoggerSalidaService, LoggerPantallaService>();
+            builder.Services.AddScoped<ILoggerSalidaService, LoggerDatabaseService>();
+            builder.Services.AddScoped<IEventLog, DatabaseEventService>();
 
 
             var app = builder.Build();

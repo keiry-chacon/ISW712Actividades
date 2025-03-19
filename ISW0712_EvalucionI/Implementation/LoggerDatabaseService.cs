@@ -16,16 +16,19 @@ namespace ISW0712_EvalucionI.Implementation
 {
     internal class LoggerDatabaseService : ILoggerSalidaService
     {
+        private readonly AppDbContext _context;
         private readonly IEventLog _eventLog;
 
-        public LoggerDatabaseService(IEventLog eventLog)
+        public LoggerDatabaseService(AppDbContext context,IEventLog eventLog)
         {
+            _context = context;
             _eventLog = eventLog;
         }
 
         public void GenerarLog(ActionLog accion, EntityLog entidad, int? id = null)
         {
-            _eventLog.Log(accion, entidad, id);
+            _context.EventLogs.Add(_eventLog.Log(accion, entidad, id));
+            _context.SaveChanges();
         }
     }
 }
